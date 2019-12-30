@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="santalogin.css">
+            
+    </head>
+    <body>
+        <div class = 'container-fluid bg'>
+            <h1 class='centerhead'>LOGIN</h1>
+            <div class = 'row'>
+                <div class = 'col-sm-12 col-md-3'>
+                    
+                </div>
+                <div class = "row justify-content-center">
+                    <div class = "col-sm-12 col-xl-12"></div>
+                    
+                        
+                                <form class = "form">
+                                        <div class="form-group">
+                                          <label for="exampleInputEmail1">Email address</label>
+                                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword1">Password</label>
+                                          <input type="password" class="form-control" id="password" placeholder="Password">
+                                        </div>
+                                        <div class="form-group form-check">
+                                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div>
+                                        <button type="submit" onclick="senddata();return false" class="btn btn-primary btn-block">Submit</button>
+                                      </form>
+
+                      
+
+                    </div>
+
+                </div>
+
+            </div>
+            <script>
+
+                senddata = function(){
+                    let email = document.getElementById('email').value;
+                    let pass = document.getElementById('password').value;
+
+                    let data = {email,pass};
+                    console.log(data)
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('post','http://localhost:3000/sid');
+                    xhr.setRequestHeader('content-type','application/json');
+                    xhr.send(JSON.stringify(data));
+                }
+               
+
+            </script>
+
+        
+    </body>
+</html>
